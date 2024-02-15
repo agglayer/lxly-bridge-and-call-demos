@@ -1,0 +1,2 @@
+@zkevm/=lib/zkevm-contracts/contracts/
+@oz-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
