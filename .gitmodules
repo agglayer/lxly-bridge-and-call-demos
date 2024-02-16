@@ -13,3 +13,6 @@
 [submodule "lib/usdc-lxly"]
 	path = lib/usdc-lxly
 	url = https://github.com/omnifient/usdc-lxly
+[submodule "lib/lxly-bridge-and-call"]
+	path = lib/lxly-bridge-and-call
+	url = https://github.com/omnifient/lxly-bridge-and-call
