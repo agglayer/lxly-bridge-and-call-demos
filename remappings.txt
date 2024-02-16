@@ -1,2 +1,5 @@
-@zkevm/=lib/zkevm-contracts/contracts/
+@bridge-and-call/=lib/lxly-bridge-and-call/src/
 @oz-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
+@usdc-e/=lib/usdc-e/src/
+@usdc-lxly/=lib/usdc-lxly/src/
+@zkevm/=lib/zkevm-contracts/contracts/

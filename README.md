@@ -91,16 +91,19 @@ forge script script/BridgeClaimScript.s.sol:DecodeMetadata
 
 1. deploy usdce to cardona
 ```
-forge script script/DeployUSDCe.s.sol:DeployUSDCe --fork-url ${L2_FORK} -vvvvv --legacy --broadcast
-```
-
-```
-forge script script/DeployUSDCe.s.sol:DeployUSDCe --fork-url ${L2_RPC} -vvvvv --legacy --broadcast
+forge script script/USDCe.s.sol:DeployUSDCe --fork-url ${L2_FORK} -vvvvv --legacy --broadcast
 ```
 
 2. deploy lxly to sepolia+cardona
+```
+forge script scripts/USDCLxLy.s.sol:DeployInit --broadcast -vvvv
+```
+
 
 3. initialize cardona usdce 
+```
+forge script script/USDCe.s.sol:InitUSDCe --fork-url ${L2_FORK} -vvvvv --legacy --broadcast
+```
 
 4. initialize lxly in sepolia+cardona
 
