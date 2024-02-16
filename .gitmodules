@@ -10,3 +10,6 @@
 [submodule "lib/usdc-e"]
 	path = lib/usdc-e
 	url = https://github.com/omnifient/usdc-e
+[submodule "lib/usdc-lxly"]
+	path = lib/usdc-lxly
+	url = https://github.com/omnifient/usdc-lxly
