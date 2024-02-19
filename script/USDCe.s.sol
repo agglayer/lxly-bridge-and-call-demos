@@ -8,7 +8,7 @@ import "@usdc-e/usdc-proxy/FiatTokenProxy.sol";
 
 contract DeployUSDCe is Script {
     function run() external {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_PRIVATE_KEY");
 
         vm.startBroadcast(deployerPrivateKey);
 
@@ -30,17 +30,16 @@ contract InitUSDCe is Script {
         address blacklister = vm.envAddress("ADDRESS_BLACKLISTER");
         address owner = vm.envAddress("ADDRESS_OWNER");
 
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-        address deployerAddress = vm.addr(deployerPrivateKey);
+        uint256 ownerAdminPrivateKey = vm.envUint("OWNER_ADMIN_PRIVATE_KEY");
+        address ownerAdminAddr = vm.addr(ownerAdminPrivateKey);
 
-        vm.startBroadcast(deployerPrivateKey);
+        vm.startBroadcast(ownerAdminPrivateKey);
 
         address payable usdceProxyAddr = payable(vm.envAddress("ADDRESS_L2_USDC"));
         console.log("usdc", usdceProxyAddr);
 
         // change proxy admin so we can call init after (fallback requires caller != admin)
         FiatTokenProxy usdceProxy = FiatTokenProxy(usdceProxyAddr);
-        console.log("changing proxy admin", usdceProxyAddr);
         console.log("from", usdceProxy.admin());
         console.log("to", owner);
         usdceProxy.changeAdmin(owner);
@@ -48,8 +47,7 @@ contract InitUSDCe is Script {
         // now we can initialize through the proxy
         FiatTokenV2_1 usdce = FiatTokenV2_1(usdceProxyAddr);
         console.log("initializing", usdceProxyAddr);
-        initializeAndConfigureMinters(usdce, deployerAddress, minterAllowedAmount);
-        relinquishPower(usdce, deployerAddress, masterMinter, pauser, blacklister, owner);
+        initializeAndConfigureMinters(usdce, ownerAdminAddr, minterAllowedAmount);
 
         vm.stopBroadcast();
     }
@@ -88,28 +86,5 @@ contract InitUSDCe is Script {
             vm.envAddress("ADDRESS_NATIVE_CONVERTER_PROXY"),
             minterAllowedAmount
         );
-    }
-
-    function relinquishPower(
-        FiatTokenV2_1 usdce,
-        address deployerAddress,
-        address masterMinter,
-        address pauser,
-        address blacklister,
-        address owner
-    ) public {
-        usdce.updatePauser(pauser);
-        console.log("Updated pauser to address: %s", pauser);
-        usdce.updateBlacklister(blacklister);
-        console.log("Updated blacklister to address: %s", blacklister);
-        usdce.updateMasterMinter(masterMinter);
-        console.log("Updated master minter to address: %s", masterMinter);
-        usdce.transferOwnership(owner);
-        console.log("Transferred ownership to address: %s", owner);
-
-        require(usdce.pauser() != deployerAddress, "DeployInitUSDCE: pauser role was not relinquished");
-        require(usdce.blacklister() != deployerAddress, "DeployInitUSDCE: blacklister role was not relinquished");
-        require(usdce.masterMinter() != deployerAddress, "DeployInitUSDCE: master minter role was not relinquished");
-        require(usdce.owner() != deployerAddress, "DeployInitUSDCE: owner role was not relinquished");
     }
 }

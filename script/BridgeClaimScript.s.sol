@@ -10,7 +10,7 @@ import {IPolygonZkEVMBridgeV2} from "@zkevm/v2/interfaces/IPolygonZkEVMBridgeV2.
 
 contract BridgeAsset is Script {
     function run() public {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_PRIVATE_KEY");
         address deployerAddress = vm.addr(deployerPrivateKey);
 
         address usdcAddr = vm.envAddress("ADDRESS_L1_USDC");
@@ -29,7 +29,7 @@ contract BridgeAsset is Script {
 
 contract ClaimAsset is Script {
     function run() public {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_PRIVATE_KEY");
         address deployerAddress = vm.addr(deployerPrivateKey);
         address usdcAddr = vm.envAddress("ADDRESS_L1_USDC");
         address bridgeAddr = vm.envAddress("ADDRESS_LXLY_BRIDGE");

@@ -3,3 +3,4 @@
 @usdc-e/=lib/usdc-e/src/
 @usdc-lxly/=lib/usdc-lxly/src/
 @zkevm/=lib/zkevm-contracts/contracts/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
