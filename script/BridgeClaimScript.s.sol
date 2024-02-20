@@ -37,24 +37,120 @@ contract ClaimAsset is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         IPolygonZkEVMBridgeV2 bridge = IPolygonZkEVMBridgeV2(bridgeAddr);
-        uint256 amount = 10 ** 6;
+        uint256 amount = 2 * 10 ** 6;
 
-        // most values from https://proof-generator.polygon.technology/api/zkevm/cardona/merkle-proof?deposit_cnt=5806&net_id=0
+        // most values from https://proof-generator.polygon.technology/api/zkevm/cardona/merkle-proof?deposit_cnt=6295&net_id=0
         bridge.claimAsset(
             // smt proof local exit root
             [
-                bytes32(bytes(hex"2c42c143213fd0e36d843d9d40866ce7be02c671beec0eae3ffd3d2638acc87c")),
-                bytes32(bytes(hex"18dd49d4ac3b31a6468446597686e7164bfb88a09685d3cd31f8f4b0b91e7d86")),
-                bytes32(bytes(hex"c4f033df7cc0b0453b148e4c0dd7829b52972ce66dc1b55b0c88b70e74170477")),
-                bytes32(bytes(hex"c6f8286ab2d4f88edcc7abc85cf62207d08aaa60809eb5bf4d1ad8400931bda6")),
-                bytes32(bytes(hex"92e986696ceee5fffac9f0b936aa8224f078882f351147f90a6c1c17484d190f")),
-                bytes32(bytes(hex"c5ac0727861e9c6b26c1d62de8c693db850bddecbdf82ec4e9e6aa7ecc646187")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex"")),
+                bytes32(bytes(hex""))
+            ],
+            // smt proof rollup exit root
+            [
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000"))
+            ],
+            uint256(6295) + 2 ** 64, // global index when originNetwork == 0: uint256(depositCount) + 2 ** 64
+            // uint256(6295) + uint256(0) * 2 ** 32, // global index: uint256(depositCount) + uint256(sourceBridgeNetwork) * _MAX_LEAFS_PER_NETWORK
+            bytes32(bytes(hex"")), // mainnetExitRoot
+            bytes32(bytes(hex"")), // rollupExitRoot
+            uint32(vm.envUint("L1_NETWORK_ID")), // originNetwork
+            usdcAddr, // originTokenAddress
+            uint32(vm.envUint("L2_NETWORK_ID")), // destinationNetwork
+            deployerAddress, // destinationAddress
+            amount, // amount
+            bytes(hex"") // metadata
+        );
+    }
+}
+
+contract ClaimMessage is Script {
+    function run() public {
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_PRIVATE_KEY");
+        address deployerAddress = vm.addr(deployerPrivateKey);
+        address originAddr = deployerAddress;
+        address bridgeAddr = vm.envAddress("ADDRESS_LXLY_BRIDGE");
+
+        vm.startBroadcast(deployerPrivateKey);
+
+        IPolygonZkEVMBridgeV2 bridge = IPolygonZkEVMBridgeV2(bridgeAddr);
+        // most values from https://proof-generator.polygon.technology/api/zkevm/cardona/merkle-proof?deposit_cnt=6296&net_id=0
+        bridge.claimMessage(
+            // smt proof local exit root
+            [
+                bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
+                bytes32(bytes(hex"ad3228b676f7d3cd4284a5443f17f1962b36e491b30a40b2405849e597ba5fb5")),
+                bytes32(bytes(hex"b4c11951957c6f8f642c4af61cd6b24640fec6dc7fc607ee8206a99e92410d30")),
+                bytes32(bytes(hex"9951fcdaad7190f66121372f7f2ac3682eacba6829f252499e9cc5e298a5e763")),
+                bytes32(bytes(hex"a16542485398b4c78ccd92ef33f19cb53d36d0047224838aba0abbc502fb99cd")),
+                bytes32(bytes(hex"0eb01ebfc9ed27500cd4dfc979272d1f0913cc9f66540d7e8005811109e1cf2d")),
                 bytes32(bytes(hex"887c22bd8750d34016ac3c66b5ff102dacdd73f6b014e710b51e8022af9a1968")),
-                bytes32(bytes(hex"9a486650c87c8f91538d6b314eba76a57edc274079940e4cbec6db7c68fb3cc2")),
+                bytes32(bytes(hex"343091bb5c43e454ab5a22fcb041ff2bc8d06e890ed27abfe456feef4bf308bf")),
                 bytes32(bytes(hex"9867cc5f7f196b93bae1e27e6320742445d290f2263827498b54fec539f756af")),
-                bytes32(bytes(hex"59bb422cb4a8e5bd68c04c78bfe977fb816a45a21d1f659f212e4170df4797cf")),
-                bytes32(bytes(hex"a4d92019bbaa2a8f093fc9c49a2566f254f4b78c863d0f3efd6468f70261c451")),
-                bytes32(bytes(hex"f8b13a49e282f609c317a833fb8d976d11517c571d1221a265d25af778ecf892")),
+                bytes32(bytes(hex"cefad4e508c098b9a7e1d8feb19955fb02ba9675585078710969d3440f5054e0")),
+                bytes32(bytes(hex"f9dc3e7fe016e050eff260334f18a5d4fe391d82092319f5964f2e2eb7c1c3a5")),
+                bytes32(bytes(hex"d2416b0547a24241cd2ef5367c52144cacd3d14e16010f4ea718a5034a74b4b3")),
                 bytes32(bytes(hex"7f17ce1f4c5dafccee42fe11509b46f2f9315ee72a026916419191c0428f06fc")),
                 bytes32(bytes(hex"c1df82d9c4b87413eae2ef048f94b4d3554cea73d92b0f7af96e0271c691e2bb")),
                 bytes32(bytes(hex"5c67add7c6caf302256adedf7ab114da0acfe870d449a3a489f781d659e8becc")),
@@ -111,17 +207,18 @@ contract ClaimAsset is Script {
                 bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000")),
                 bytes32(bytes(hex"0000000000000000000000000000000000000000000000000000000000000000"))
             ],
-            uint256(5806) + uint256(0) * 2 ** 32, // global index: uint256(depositCount) + uint256(sourceBridgeNetwork) * _MAX_LEAFS_PER_NETWORK
-            bytes32(bytes(hex"7a0510c763979a63905a8dff389128770d556aa315ad6a7b9357064febe2871c")), // mainnetExitRoot
-            bytes32(bytes(hex"c661b2838daefe6092e30efc9416684d7eb126cc18c34adb68b64eb9cc00e556")), // rollupExitRoot
+            uint256(6296) + 2 ** 64, // global index when originNetwork == 0: uint256(depositCount) + 2 ** 64
+            // uint256(6217) + uint256(1) * 2 ** 32, // global index when originNetwork == 1: uint256(depositCount) + uint256(sourceBridgeNetwork) * _MAX_LEAFS_PER_NETWORK
+            bytes32(bytes(hex"3fd2df85ddfab297a39b501ff37dcaa881520f330f00e6b0157f48ff434d4e3b")), // mainnetExitRoot
+            bytes32(bytes(hex"4475d32e911ee5441fa5918c696e04e5024a4c498d2065bdd23e810cb688a853")), // rollupExitRoot
             uint32(vm.envUint("L1_NETWORK_ID")), // originNetwork
-            usdcAddr, // originTokenAddress
+            0x549Dd117fD893131C613c23597995f74B5993f05, // originAddress
             uint32(vm.envUint("L2_NETWORK_ID")), // destinationNetwork
-            deployerAddress, // destinationAddress
-            amount, // amount
-            bytes( // metadata
-                hex"000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000004555344430000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000045553444300000000000000000000000000000000000000000000000000000000"
-            )
+            0x9BD74Ddb858E3bb98ED951d5cfe0B3e6Fe8DC240, // destinationAddress
+            0, // amount
+            bytes(
+                hex"00000000000000000000000000000000000000000000000000000000000018980000000000000000000000004d758bd4ce9f7ed1e03ade50f1e2ef83c477113f0000000000000000000000001c7d4b196cb0c7b01d743fbc6116a902379c72380000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000008489eabf02000000000000000000000000b67826c2176682fd3ae3e31a561fc4b9fb01222500000000000000000000000000000000000000000000000000000000001e84800000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+            ) // metadata
         );
     }
 }

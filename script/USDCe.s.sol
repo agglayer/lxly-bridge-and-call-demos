@@ -28,12 +28,12 @@ contract InitUSDCe is Script {
         address masterMinter = vm.envAddress("ADDRESS_MASTER_MINTER");
         address pauser = vm.envAddress("ADDRESS_PAUSER");
         address blacklister = vm.envAddress("ADDRESS_BLACKLISTER");
-        address owner = vm.envAddress("ADDRESS_OWNER");
+        address usdcAdmin = vm.envAddress("ADDRESS_USDC_ADMIN");
 
-        uint256 ownerAdminPrivateKey = vm.envUint("OWNER_ADMIN_PRIVATE_KEY");
-        address ownerAdminAddr = vm.addr(ownerAdminPrivateKey);
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_PRIVATE_KEY");
+        address deployer = vm.addr(deployerPrivateKey);
 
-        vm.startBroadcast(ownerAdminPrivateKey);
+        vm.startBroadcast(deployerPrivateKey);
 
         address payable usdceProxyAddr = payable(vm.envAddress("ADDRESS_L2_USDC"));
         console.log("usdc", usdceProxyAddr);
@@ -41,13 +41,13 @@ contract InitUSDCe is Script {
         // change proxy admin so we can call init after (fallback requires caller != admin)
         FiatTokenProxy usdceProxy = FiatTokenProxy(usdceProxyAddr);
         console.log("from", usdceProxy.admin());
-        console.log("to", owner);
-        usdceProxy.changeAdmin(owner);
+        console.log("to", usdcAdmin);
+        usdceProxy.changeAdmin(usdcAdmin);
 
         // now we can initialize through the proxy
         FiatTokenV2_1 usdce = FiatTokenV2_1(usdceProxyAddr);
         console.log("initializing", usdceProxyAddr);
-        initializeAndConfigureMinters(usdce, ownerAdminAddr, minterAllowedAmount);
+        initializeAndConfigureMinters(usdce, deployer, minterAllowedAmount);
 
         vm.stopBroadcast();
     }
