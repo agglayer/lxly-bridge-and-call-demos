@@ -4,7 +4,7 @@
 
   - Bridge USDC from L1 into L2 and call NativeConverter
   - Bridge MATIC from L1 and deposit into KEOM
-  - Bridge USDC from L1 and swap to
+  - Bridge USDC from L1 and swap to MATIC
 
 - L2 -> L2 EXAMPLE
 
@@ -24,8 +24,8 @@ export L2_RPC=https://rpc.cardona.zkevm-rpc.com
 
 #### Anvil fork commands
 ```
-anvil --fork-url $L1_RPC --chain-id 11155111 --port 8001
-anvil --fork-url $L2_RPC --chain-id 2442 --port 8101
+anvil --fork-url https://eth-sepolia.g.alchemy.com/v2/<SNIP> --chain-id 11155111 --port 8001
+anvil --fork-url https://rpc.cardona.zkevm-rpc.com --chain-id 2442 --port 8101
 ```
 
 #### Sepolia Addresses
@@ -199,7 +199,7 @@ forge script script/BridgeClaimScript.s.sol:DecodeMetadata
 ```
 
 
-## L1 -> L2: Bridge USDC from L1 into L2 and call NativeConverter
+## 2. L1 -> L2: Bridge USDC from L1 into L2 and Call NativeConverter
 
 - run bridge and call
 ```
@@ -221,3 +221,30 @@ forge script script/BridgeClaimScript.s.sol:ClaimMessage --evm-version shanghai 
 ```
 
 > https://explorer-ui.cardona.zkevm-rpc.com/tx/0x2ae94baa6317e517b9b2f585fde1e0a9c31f718eed3f7cbb8e276800f9d4efde
+
+## 3. L1 -> L2: Bridge USDC from L1 into L2 and Call QuickSwap
+
+- deploy FakeQuickSwap to L2
+```
+forge create ./src/FakeQuickSwap.sol:FakeQuickSwap --rpc-url $L2_RPC --legacy --interactive
+```
+
+> https://explorer-ui.cardona.zkevm-rpc.com/tx/0x5c8e0c5b3248eeb374dcd07a103353bd05875a7de3d3e416d6d840f7af4d4234
+
+> https://explorer-ui.cardona.zkevm-rpc.com/address/0x820bf8c6Afc30c7934071779C3e2b175a15C3419
+
+- deploy auxiliary QuickSwap contracts
+
+- run bridge and call
+
+- run message claimer
+
+## 4. L1 -> L2: Bridge MATIC from L1 into L2 and Deposit into KEOM
+
+- deploy FakeKEOM to L2
+
+- deploy auxiliary KEOM contracts
+
+- run bridge and call
+
+- run message claimer
