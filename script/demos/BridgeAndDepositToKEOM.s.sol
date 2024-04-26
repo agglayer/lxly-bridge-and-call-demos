@@ -12,41 +12,44 @@ contract AGG is Script {
         vm.startBroadcast(vm.envUint("DEPLOYER_PRIVATE_KEY"));
 
         address bridgeExtension = vm.envAddress("ADDRESS_BRIDGE_EXTENSION");
-        address aggLayerToken = vm.envAddress("ADDRESS_LX_AGG");
-        address kbwAGG = vm.envAddress("ADDRESS_LY_KBWAGG");
+        address lxAGG = vm.envAddress("ADDRESS_LX_AGG");
+        address lyAGGbw = vm.envAddress("ADDRESS_LY_AGG_BW");
+        address lyKAGGbw = vm.envAddress("ADDRESS_LY_KAGG_BW");
         uint256 amount = vm.envUint("AMOUNT_IN_DECIMALS");
+        address receiver = vm.envAddress("ADDRESS_DEPLOYER");
 
-        // the multicall calldata
+        // the multicall calldata - this happens in LY
         bytes memory multicallCalldata = abi.encodeWithSelector(
             bytes4(keccak256("multiCall(address[],bytes[])")),
             [
-                // call agg.approve(kbwAGG, amount)
-                aggLayerToken,
-                // call kbwAGG.mint(amount)
-                kbwAGG
-                // TODO: add approval and transfer to me
+                // call lyAGGbw.approve(lyKAGGbw, amount)
+                lyAGGbw,
+                // call lyKAGGbw.mint(amount)
+                lyKAGGbw,
+                // call lyKAGGbw.transfer(receiver)
+                lyKAGGbw
             ],
             [
-                // aggLayerToken approval calldata
-                abi.encodeWithSelector(bytes4(keccak256("approve(address,uint256)")), kbwAGG, amount),
-                // KEOM calldata
-                abi.encodeWithSelector(
-                    bytes4(keccak256("mint(uint256)")),
-                    amount // amount
-                )
-                // TODO: transfer to me
+                // calldata for allowing KEOM to transfer the AGGbw
+                abi.encodeWithSelector(bytes4(keccak256("approve(address,uint256)")), lyKAGGbw, amount),
+                // calldata for depositing into KEOM
+                abi.encodeWithSelector(bytes4(keccak256("mint(uint256)")), amount),
+                // calldata for transfering KAGGbw to the receiver
+                abi.encodeWithSelector(bytes4(keccak256("transfer(address,uint256)")), receiver, amount)
             ]
         );
 
-        // allow bridge extension to spend the aggLayerToken for bridge and call
-        IERC20(aggLayerToken).approve(address(bridgeExtension), amount);
+        // this executes in LX
+        // allow bridge extension to spend the lxAGG for bridge and call
+        IERC20(lxAGG).approve(address(bridgeExtension), amount);
+        // do the bridge and call
         BridgeExtension(bridgeExtension).bridgeAndCall(
-            aggLayerToken, // token to bridge
+            lxAGG, // token to bridge
             amount, // amount to bridge
             "", // not using permit
             uint32(vm.envUint("LY_NETWORK_ID")), // destination network id
             vm.envAddress("ADDRESS_LY_MULTICALL"), // multicall
-            address(0), // fallback address
+            receiver, // fallback address
             multicallCalldata, // calldata
             true
         );

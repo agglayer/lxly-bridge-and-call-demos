@@ -210,17 +210,23 @@ TODO: excalidraw the demos
 export RPC=https://rpc.cardona.zkevm-rpc.com
 export DEPLOYER_PRIVATE_KEY=
 export ADDRESS_BRIDGE_EXTENSION=0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1
-export LY_NETWORK_ID=2
 export ADDRESS_LX_AGG=0x88342beb50513c9994696c1dadeedad5e8b763df
-export ADDRESS_LY_KBWAGG=0x082b1110e5A9068dBfC654C54A23C4C10F23E9b2
-export ADDRESS_LY_MULTICALL=0xd189584dc079ce08DB854F17ab125ffda6128DfC
+export ADDRESS_LY_AGG_BW=0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16
+export ADDRESS_LY_KAGG_BW=0x082b1110e5A9068dBfC654C54A23C4C10F23E9b2
 export AMOUNT_IN_DECIMALS=8000000000000000000000
+export ADDRESS_DEPLOYER=0xb67826C2176682Fd3Ae3e31A561fc4b9fb012225
+export LY_NETWORK_ID=2
+export ADDRESS_LY_MULTICALL=0xd189584dc079ce08DB854F17ab125ffda6128DfC
 
 // Bridge Cardona AGG to zKyoto (bwAGG) and call deposit to corresponding KEOM market
 forge script script/demos/BridgeAndDepositToKEOM.s.sol:AGG --rpc-url ${RPC} -vvvv --legacy
 forge script script/demos/BridgeAndDepositToKEOM.s.sol:AGG --rpc-url ${RPC} -vvvv --legacy --broadcast
 
+// Update the claim script with the token, tx hash, and networks
+script/claim.js
+
 // Claim the message
+node script/claim.js
 ```
 
 ### L1 to L2 to L1
