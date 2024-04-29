@@ -5,6 +5,6 @@ import "forge-std/console.sol";
 
 import {BaseBridgeAndDeposit} from "./base/BridgeAndDeposit.s.sol";
 
-contract L2L2BridgeAndDeposit is BaseBridgeAndDeposit {
+contract L1L2BridgeAndDeposit is BaseBridgeAndDeposit {
 // logic in base script
 }
