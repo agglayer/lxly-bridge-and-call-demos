@@ -240,19 +240,19 @@ export LY_NETWORK_ID=2
 - Send the bridgeAndCall tx: this bridges $AGG from Cardona to zKyoto ($bwAGG) and calls deposit to the corresponding KEOM market
 
 ```
-forge script script/demos/BridgeAndDepositToKEOM.s.sol:AGG --rpc-url ${RPC} -vvvv --legacy --broadcast
+forge script script/demos/L2L2BridgeAndDeposit.s.sol:AGG --rpc-url ${RPC} -vvvv --legacy --broadcast
 ```
 
 - Update the claim script with the token, tx hash, and networks
 
 ```
-EDIT script/claim.js
+EDIT script/demos/L2L2BridgeAndDepositClaim.js
 ```
 
 - Claim the message
 
 ```
-node script/claim.js
+node script/demos/L2L2BridgeAndDepositClaim.js
 ```
 
 Note: You'll need to run `npm install` before using the script for the first time.
