@@ -85,7 +85,7 @@ const execute = async () => {
     const SOURCE_NETWORK_ID = 1;
     const TARGET_NETWORK_ID = 2;
     const BRIDGED_ASSET_ADDR = 0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16; // NOTE: TOKEN address in TARGET network
-    const BRIDGED_TX_HASH = "0x6119d452a684a263037a309ff443a555ae1470d2227434f3f27518abdbf3ffc8";
+    const BRIDGED_TX_HASH = "0xdd40391969de74dd9c09d2bbae3724a8b4608f67dfa2518d8789486bcff77981";
 
     console.log("gm!");
     const client = await getLxLyClient();
@@ -135,6 +135,10 @@ const execute = async () => {
     // TODO: get keom balance
 }
 
+// export DEPLOYER_PRIVATE_KEY=
+// export ADDRESS_DEPLOYER=
+// export ADDRESS_BRIDGE=
+// 
 // node script/claim.js
 execute().then(() => {
     // n/a

@@ -27,28 +27,29 @@
 
 ### Contracts
 
-| Contract              | Sepolia (network id 0)                     | Cardona (network id 1)                     | zKyoto (network id 2)                      | XLayer Testnet |
-| --------------------- | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | -------------- |
-| LxLy Bridge           | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | TODO           |
-| BridgeExtension       | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1 | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1 | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1 | TODO           |
-| MultiCall             |                                            | 0x9A383EE14F14128CE21E0cAB3023d27b739835b6 | 0xd189584dc079ce08DB854F17ab125ffda6128DfC |                |
-|                       |                                            |                                            |                                            |                |
-| USDC                  | 0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238 | 0xc1EF3FC60d6CfC83fe58Fd5f48aB75A20b2518C1 | TODO                                       | TODO           |
-| FakeAggLayerToken     | n/a                                        | 0x88342beb50513c9994696c1dadeedad5e8b763df | 0xaf154A248d8C4061b728F49795065C0CD847BA3C | TODO           |
-|                       |                                            |                                            |                                            |                |
-| (bw)USDC              |                                            | 0x150aE9614A43361775D9D3A006f75CCc558B598F | 0x150aE9614A43361775D9D3A006f75CCc558B598F | TODO           |
-| (bw)FakeAggLayerToken |                                            | TODO                                       | 0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16 |                |
-|                       |                                            |                                            |                                            |                |
-| L1Escrow (Cardona)    | 0x7242023A8C682A1B67376C82B36Fb49e098199E4 | n/a                                        | n/a                                        | n/a            |
-| L1Escrow (zKyoto)     |                                            | n/a                                        | n/a                                        | n/a            |
-| L1Escrow (XLayer)     |                                            | n/a                                        | n/a                                        | n/a            |
-| MinterBurner          | n/a                                        | 0x1fF8889219DdF5Fc867635716AEE2F4C9F21f980 | TODO                                       | TODO           |
-| NativeConverter (old) | n/a                                        | 0x4D758bD4CE9F7ed1e03AdE50f1E2ef83c477113F | TODO                                       | TODO           |
-|                       |                                            |                                            |                                            |                |
-| FakeQuickSwap         | n/a                                        | 0x820bf8c6Afc30c7934071779C3e2b175a15C3419 | 0xf43Fc6ae7eed237aB6d58fa2F4fB45d84C2Ff483 | TODO           |
-| Fake kUSDC            | n/a                                        | TODO                                       | TODO                                       | TODO           |
-| Fake kbwAGG           | n/a                                        | TODO                                       | 0x082b1110e5A9068dBfC654C54A23C4C10F23E9b2 | TODO           |
-|                       |                                            |                                            |                                            |                |
+| Contract              | Sepolia (network id 0)                     | Cardona (network id 1)                     | zKyoto (network id 2)                      | XLayer Testnet (network id 3) |
+| --------------------- | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ----------------------------- |
+| LxLy Bridge           | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | TODO                          |
+| BridgeExtension       | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1 | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1 | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1 | TODO                          |
+| MultiCall             |                                            | 0x188A500BAdb18E1EBe7ced5D685d5808f13366f7 | 0x2bF80055C826899911690C30489930F7573fF037 |                               |
+|                       |                                            |                                            |                                            |                               |
+| USDC                  | 0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238 | 0xc1EF3FC60d6CfC83fe58Fd5f48aB75A20b2518C1 | TODO                                       | TODO                          |
+| FakeAggLayerToken     | n/a                                        | 0x88342beb50513c9994696c1dadeedad5e8b763df | 0xaf154A248d8C4061b728F49795065C0CD847BA3C | TODO                          |
+|                       |                                            |                                            |                                            |                               |
+| (bw)USDC              |                                            | 0x150aE9614A43361775D9D3A006f75CCc558B598F | 0x150aE9614A43361775D9D3A006f75CCc558B598F | TODO                          |
+| (bw)FakeAggLayerToken |                                            | TODO                                       | 0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16 |                               |
+|                       |                                            |                                            |                                            |                               |
+| L1Escrow (Cardona)    | 0x7242023A8C682A1B67376C82B36Fb49e098199E4 | n/a                                        | n/a                                        | n/a                           |
+| L1Escrow (zKyoto)     |                                            | n/a                                        | n/a                                        | n/a                           |
+| L1Escrow (XLayer)     |                                            | n/a                                        | n/a                                        | n/a                           |
+| MinterBurner          | n/a                                        | 0x1fF8889219DdF5Fc867635716AEE2F4C9F21f980 | TODO                                       | TODO                          |
+| NativeConverter (old) | n/a                                        | 0x4D758bD4CE9F7ed1e03AdE50f1E2ef83c477113F | TODO                                       | TODO                          |
+|                       |                                            |                                            |                                            |                               |
+| FakeQuickSwap         | n/a                                        | 0x820bf8c6Afc30c7934071779C3e2b175a15C3419 | 0xf43Fc6ae7eed237aB6d58fa2F4fB45d84C2Ff483 | TODO                          |
+| Fake kUSDC            | n/a                                        | TODO                                       | TODO                                       | TODO                          |
+| Fake kbwAGG           | n/a                                        | TODO                                       | 0x082b1110e5A9068dBfC654C54A23C4C10F23E9b2 | TODO                          |
+| KEOM Helper           | TODO                                       | TODO                                       | 0x330bEaDD49c8E599442d2B51f02B23a087bf56cc | TODO                          |
+|                       |                                            |                                            |                                            |                               |
 
 #### Values Used for Deployment / Configuration
 
@@ -177,6 +178,13 @@ export RPC=https://rpc.startale.com/zkyoto
 forge create --rpc-url ${RPC} ./src/FakeKEOM.sol:FakeKEOM --constructor-args "KEOM bwAggLayerToken Market" "KbwAGG" 0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16 --legacy --interactive
 ```
 
+3. Deploy a KEOMHelper to L2
+
+```
+export RPC=https://rpc.startale.com/zkyoto
+forge create --rpc-url ${RPC} ./src/KEOMHelper.sol:KEOMHelper --legacy --interactive
+```
+
 ## 1. DEMOS
 
 TODO: excalidraw the demos
@@ -211,18 +219,18 @@ export RPC=https://rpc.cardona.zkevm-rpc.com
 export DEPLOYER_PRIVATE_KEY=
 export ADDRESS_BRIDGE_EXTENSION=0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1
 export ADDRESS_LX_AGG=0x88342beb50513c9994696c1dadeedad5e8b763df
+export ADDRESS_LY_KEOM_HELPER=0x330bEaDD49c8E599442d2B51f02B23a087bf56cc
 export ADDRESS_LY_AGG_BW=0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16
 export ADDRESS_LY_KAGG_BW=0x082b1110e5A9068dBfC654C54A23C4C10F23E9b2
 export AMOUNT_IN_DECIMALS=8000000000000000000000
 export ADDRESS_DEPLOYER=0xb67826C2176682Fd3Ae3e31A561fc4b9fb012225
 export LY_NETWORK_ID=2
-export ADDRESS_LY_MULTICALL=0xd189584dc079ce08DB854F17ab125ffda6128DfC
 
 // Bridge Cardona AGG to zKyoto (bwAGG) and call deposit to corresponding KEOM market
 forge script script/demos/BridgeAndDepositToKEOM.s.sol:AGG --rpc-url ${RPC} -vvvv --legacy
 forge script script/demos/BridgeAndDepositToKEOM.s.sol:AGG --rpc-url ${RPC} -vvvv --legacy --broadcast
 
-// Update the claim script with the token, tx hash, and networks
+// Update the claim script with the token, tx hash, and networks before calling this
 script/claim.js
 
 // Claim the message
