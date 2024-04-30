@@ -40,34 +40,32 @@ You'll most likely need this info for testing things.
 
 ### Contracts
 
-| Contract              | Sepolia (network id 0)                            | Cardona (network id 1)                     | zKyoto (network id 2)                              | XLayer Testnet (network id 3) |
-| --------------------- | ------------------------------------------------- | ------------------------------------------ | -------------------------------------------------- | ----------------------------- |
-| LxLy Bridge           | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582        | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582         | TODO                          |
-| BridgeExtension       | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1        | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1 | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1         | TODO                          |
-| MultiCall             | TODO                                              | 0x188A500BAdb18E1EBe7ced5D685d5808f13366f7 | 0x2bF80055C826899911690C30489930F7573fF037         | TODO                          |
-|                       |                                                   |                                            |                                                    |                               |
-| USDC                  | 0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238        | 0xc1EF3FC60d6CfC83fe58Fd5f48aB75A20b2518C1 | TODO                                               | TODO                          |
-| FakeDolla             | 0x805023692260d1aefb0b4e622e03e77e21adf5cf        | TODO                                       | 0xe6e6809bBFA49cEE58988e532d71bddf83aD2A38         | TODO                          |
-| FakeAggLayerToken     | 0x2170cc348ae3cfb77cde9c3ca6b279863df7e0bf        | 0x88342beb50513c9994696c1dadeedad5e8b763df | 0xaf154A248d8C4061b728F49795065C0CD847BA3C         | TODO                          |
-|                       |                                                   |                                            |                                                    |                               |
-| (bw)USDC              | TODO                                              | 0x150aE9614A43361775D9D3A006f75CCc558B598F | 0x150aE9614A43361775D9D3A006f75CCc558B598F         | TODO                          |
-| (bw)FakeAggLayerToken | TODO                                              | TODO                                       | sepolia:0x757413d0ae85d44e2aa8adf09b00c19be27346c7 | TODO                          |
-|                       | TODO                                              | TODO                                       | cardona:0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16 | TODO                          |
-| (bw)Dolla             | zkyoto:0xb89a7eb06f277c9105a91e523357972384c8a27d | TODO                                       | TODO                                               | TODO                          |
-|                       |                                                   |                                            |                                                    |                               |
-| L1Escrow (Cardona)    | 0x7242023A8C682A1B67376C82B36Fb49e098199E4        | n/a                                        | n/a                                                | n/a                           |
-| L1Escrow (zKyoto)     |                                                   | n/a                                        | n/a                                                | n/a                           |
-| L1Escrow (XLayer)     |                                                   | n/a                                        | n/a                                                | n/a                           |
-| MinterBurner          | n/a                                               | 0x1fF8889219DdF5Fc867635716AEE2F4C9F21f980 | TODO                                               | TODO                          |
-| NativeConverter (old) | n/a                                               | 0x4D758bD4CE9F7ed1e03AdE50f1E2ef83c477113F | TODO                                               | TODO                          |
-|                       |                                                   |                                            |                                                    |                               |
-| FakeQuickSwap         | 0xcc1d701a479979673715285c1ad768fa37b04856        | 0x820bf8c6Afc30c7934071779C3e2b175a15C3419 | 0xf43Fc6ae7eed237aB6d58fa2F4fB45d84C2Ff483         | TODO                          |
-| Fake kUSDC            | n/a                                               | TODO                                       | TODO                                               | TODO                          |
-| Fake kbwAGG           | n/a                                               | TODO                                       | sepolia:0x37715A4B43Abee5407d2D516a065c38d5A3C3A0E | TODO                          |
-|                       | n/a                                               | TODO                                       | cardona:0x082b1110e5A9068dBfC654C54A23C4C10F23E9b2 | TODO                          |
-| KEOM Helper           | TODO                                              | 0xDE978991D6756d0980B3435c3d6EB3CF7a4fE3cf | 0x330bEaDD49c8E599442d2B51f02B23a087bf56cc         | TODO                          |
-| Swap Helper           | 0xC7458D4D5b6c5Acf627D3E27fa61E7BB393C5b51        | TODO                                       | TODO                                               | TODO                          |
-|                       |                                                   |                                            |                                                    |                               |
+| Contract              | Sepolia (network id 0)                             | Cardona (network id 1)                             | zKyoto (network id 2)                              | XLayer Testnet (network id 3) |
+| --------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | ----------------------------- |
+| LxLy Bridge           | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582         | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582         | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582         | TODO                          |
+| BridgeExtension       | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1         | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1         | 0x2311BFA86Ae27FC10E1ad3f805A2F9d22Fc8a6a1         | TODO                          |
+| MultiCall             | TODO                                               | 0x188A500BAdb18E1EBe7ced5D685d5808f13366f7         | 0x2bF80055C826899911690C30489930F7573fF037         | TODO                          |
+|                       |                                                    |                                                    |                                                    |                               |
+| USDC                  | 0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238         | 0xc1EF3FC60d6CfC83fe58Fd5f48aB75A20b2518C1         | TODO                                               | TODO                          |
+| FakeDolla             | 0x805023692260d1aefb0b4e622e03e77e21adf5cf         | TODO                                               | 0xe6e6809bBFA49cEE58988e532d71bddf83aD2A38         | TODO                          |
+| FakeAggLayerToken     | 0x2170cc348ae3cfb77cde9c3ca6b279863df7e0bf         | 0x88342beb50513c9994696c1dadeedad5e8b763df         | 0xaf154A248d8C4061b728F49795065C0CD847BA3C         | TODO                          |
+|                       |                                                    |                                                    |                                                    |                               |
+| (bw)USDC              | TODO                                               | 0x150aE9614A43361775D9D3A006f75CCc558B598F         | 0x150aE9614A43361775D9D3A006f75CCc558B598F         | TODO                          |
+| (bw)FakeAggLayerToken | TODO                                               | TODO                                               | sepolia:0x757413d0ae85d44e2aa8adf09b00c19be27346c7 | TODO                          |
+|                       | TODO                                               | TODO                                               | cardona:0xA239f92e2d4356b26118A0Cfb1d515C5C5AC5f16 | TODO                          |
+| (bw)Dolla             | zkyoto:0xb89a7eb06f277c9105a91e523357972384c8a27d  | TODO                                               | TODO                                               | TODO                          |
+|                       |                                                    |                                                    |                                                    |                               |
+| L1Escrow              | cardona:0x7242023A8C682A1B67376C82B36Fb49e098199E4 | TODO                                               | TODO                                               | TODO                          |
+| MinterBurner          | n/a                                                | sepolia:0x1fF8889219DdF5Fc867635716AEE2F4C9F21f980 | TODO                                               | TODO                          |
+| NativeConverter (old) | n/a                                                | sepolia:0x4D758bD4CE9F7ed1e03AdE50f1E2ef83c477113F | TODO                                               | TODO                          |
+|                       |                                                    |                                                    |                                                    |                               |
+| FakeQuickSwap         | 0xcc1d701a479979673715285c1ad768fa37b04856         | 0x820bf8c6Afc30c7934071779C3e2b175a15C3419         | 0xf43Fc6ae7eed237aB6d58fa2F4fB45d84C2Ff483         | TODO                          |
+| Fake kUSDC            | n/a                                                | TODO                                               | TODO                                               | TODO                          |
+| Fake kbwAGG           | n/a                                                | TODO                                               | sepolia:0x37715A4B43Abee5407d2D516a065c38d5A3C3A0E | TODO                          |
+|                       | n/a                                                | TODO                                               | cardona:0x082b1110e5A9068dBfC654C54A23C4C10F23E9b2 | TODO                          |
+| KEOM Helper           | TODO                                               | 0xDE978991D6756d0980B3435c3d6EB3CF7a4fE3cf         | 0x330bEaDD49c8E599442d2B51f02B23a087bf56cc         | TODO                          |
+| Swap Helper           | 0xC7458D4D5b6c5Acf627D3E27fa61E7BB393C5b51         | TODO                                               | TODO                                               | TODO                          |
+|                       |                                                    |                                                    |                                                    |                               |
 
 #### Values Used for Deployment / Configuration
 
