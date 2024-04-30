@@ -7,7 +7,7 @@ import {IERC20} from "forge-std/interfaces/IERC20.sol";
 
 import {BridgeExtension} from "@bridge-and-call/BridgeExtension.sol";
 
-contract BaseBridgeAndDeposit is Script {
+contract BridgeAndSwap is Script {
     function run() public {
         vm.startBroadcast(vm.envUint("DEPLOYER_PRIVATE_KEY"));
 
@@ -16,12 +16,13 @@ contract BaseBridgeAndDeposit is Script {
 
         // the token we're bridging
         address lxToken = vm.envAddress("ADDRESS_LX_TOKEN");
-        // the contract that gets called
-        address lyKeomHelper = vm.envAddress("ADDRESS_LY_TARGET");
+        // the contract that gets called (swap helper)
+        address lyTarget = vm.envAddress("ADDRESS_LY_TARGET");
 
-        // arguments to KEOMHelper.depositAndTransfer(....) - these are values in Ly
-        address lyTokenBridgeWrapped = vm.envAddress("ADDRESS_LY_TOKEN_BW"); // the token to deposit
-        address lyKToken = vm.envAddress("ADDRESS_LY_KTOKEN"); // the keom market (specific for the token)
+        // arguments to the contract
+        uint256 swapper = vm.envUint("ADDRESS_LY_SWAPPER"); // the swap router
+        address tokenToSell = vm.envAddress("ADDRESS_LY_TOKEN_SELL");
+        address tokenToBuy = vm.envAddress("ADDRESS_LY_TOKEN_BUY");
         uint256 amount = vm.envUint("AMOUNT_IN_DECIMALS"); // the amount
         address receiver = vm.envAddress("ADDRESS_DEPLOYER"); // the receiver of the kTokens
 
@@ -34,13 +35,14 @@ contract BaseBridgeAndDeposit is Script {
             amount, // amount to bridge
             "", // not using permit
             uint32(vm.envUint("LY_NETWORK_ID")), // destination network id
-            lyKeomHelper, // contract to call (in Ly)
+            lyTarget, // contract to call (in Ly)
             receiver, // fallback address
             abi.encodeWithSelector( // the call data
-                bytes4(keccak256("depositAndTransfer(address,uint256,address,address)")),
-                lyTokenBridgeWrapped,
+                bytes4(keccak256("swapAndTransfer(address,address,uint256,address,address)")),
+                swapper,
+                tokenToSell,
                 amount,
-                lyKToken,
+                tokenToBuy,
                 receiver
             ),
             true
