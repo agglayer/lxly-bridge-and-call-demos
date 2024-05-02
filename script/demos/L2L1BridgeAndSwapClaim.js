@@ -4,7 +4,7 @@ const { execute } = require('./base/claim.js');
 // export ADDRESS_DEPLOYER=
 // export ADDRESS_BRIDGE=
 // 
-// node script/demos/L2L2BridgeAndDepositClaim.js
+// node script/demos/L2L1BridgeAndSwapClaim.js
 const SOURCE_NETWORK_ID = 2;
 const TARGET_NETWORK_ID = 0;
 const BRIDGED_ASSET_ADDR = 0xb89a7eb06f277c9105a91e523357972384c8a27d; // NOTE: TOKEN address in TARGET network
