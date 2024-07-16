@@ -343,7 +343,7 @@ export ADDRESS_DEPLOYER=0xb67826C2176682Fd3Ae3e31A561fc4b9fb012225
 - Send the bridgeAndCall tx: this bridges $AGG from Cardona to zKyoto ($bwAGG) and calls deposit to the corresponding KEOM market
 
 ```
-forge script script/demos/L2L2BridgeAndDeposit.s.sol:AGG --rpc-url ${RPC} -vvvv --legacy --broadcast
+forge script script/demos/L2L2BridgeAndDeposit.s.sol:L2L2BridgeAndDeposit --rpc-url ${RPC} -vvvv --legacy --broadcast
 ```
 
 - Update the claim script with the token, tx hash, and networks
